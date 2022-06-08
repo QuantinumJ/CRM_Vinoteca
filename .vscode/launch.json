@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GoodSmellApp<good-smell>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "goodsmell.GoodSmellApp",
+            "projectName": "good-smell",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
