@@ -1,0 +1,62 @@
+{
+  "applications": "*",
+  "changelogDate": "20220608135206",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vino_tinto",
+  "fields": [
+    {
+      "fieldName": "bodega",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "denominacionOrigen",
+      "fieldType": "DomOrg",
+      "fieldValues": "ANDALUCIA,ARAGON,ASTURIAS,CANARIAS,CASTILLA_LA_MANCHA,CASTILLA_Y_LEON,CATALUNA,EXTREMADURA,ISLAS_BALEARES,LA_RIOJA,MADRID,MURCIA,NAVARRA,PAIS_VASCO,C_VALENCIANA,SIN_DOMINACION"
+    },
+    {
+      "fieldName": "anoCosecha",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maduracion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "purezaVino",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "precioBruto",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "tipoUvaTinta",
+      "fieldType": "UvaTinta",
+      "fieldValues": "BOBAL,BRANCELLAO,CABERNET_FRANC,CABERNET_SAUVIGNON,CALLET,MATURANA,GARNACHA,MENCIA,MERLOT,MONASTRELL,PRIETO_PICUDO,SYRAH,TEMPRANILLO,VERDEJO_NEGRO"
+    },
+    {
+      "fieldName": "stock",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "VinoTinto",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

@@ -1,0 +1,78 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="venta">
+      <h2 data-cy="ventaDetailsHeading"><span jhiTranslate="goodSmellApp.venta.detail.title">Venta</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ venta.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.fechaHora">Fecha Hora</span></dt>
+        <dd>
+          <span>{{ venta.fechaHora | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.cantidad">Cantidad</span></dt>
+        <dd>
+          <span>{{ venta.cantidad }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.totalNeto">Total Neto</span></dt>
+        <dd>
+          <span>{{ venta.totalNeto }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.totalPagar">Total Pagar</span></dt>
+        <dd>
+          <span>{{ venta.totalPagar }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.tipoDePago">Tipo De Pago</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'goodSmellApp.FormaPago.' + venta.tipoDePago }}">{{ venta.tipoDePago }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.factura">Factura</span></dt>
+        <dd>
+          <div *ngIf="venta.factura">
+            <a [routerLink]="['/factura', venta.factura?.id, 'view']">{{ venta.factura?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.empleado">Empleado</span></dt>
+        <dd>
+          <div *ngIf="venta.empleado">
+            <a [routerLink]="['/empleado', venta.empleado?.id, 'view']">{{ venta.empleado?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.vinoTinto">Vino Tinto</span></dt>
+        <dd>
+          <div *ngIf="venta.vinoTinto">
+            <a [routerLink]="['/vino-tinto', venta.vinoTinto?.id, 'view']">{{ venta.vinoTinto?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.vinoRosado">Vino Rosado</span></dt>
+        <dd>
+          <div *ngIf="venta.vinoRosado">
+            <a [routerLink]="['/vino-rosado', venta.vinoRosado?.id, 'view']">{{ venta.vinoRosado?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.venta.vinoBlanco">Vino Blanco</span></dt>
+        <dd>
+          <div *ngIf="venta.vinoBlanco">
+            <a [routerLink]="['/vino-blanco', venta.vinoBlanco?.id, 'view']">{{ venta.vinoBlanco?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/venta', venta.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

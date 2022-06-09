@@ -1,0 +1,59 @@
+{
+  "applications": "*",
+  "changelogDate": "20220608135201",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "cliente",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "apellido",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dni",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fechaAlta",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "telefono",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "direccion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "fidelizado",
+      "fieldType": "Boolean"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Cliente",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "empresa",
+      "otherEntityRelationshipName": "cliente",
+      "relationshipName": "empresa",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

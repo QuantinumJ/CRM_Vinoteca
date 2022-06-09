@@ -1,0 +1,150 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-venta-heading" data-cy="VentaCreateUpdateHeading" jhiTranslate="goodSmellApp.venta.home.createOrEditLabel">
+        Create or edit a Venta
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.fechaHora" for="field_fechaHora">Fecha Hora</label>
+          <div class="d-flex">
+            <input
+              id="field_fechaHora"
+              data-cy="fechaHora"
+              type="datetime-local"
+              class="form-control"
+              name="fechaHora"
+              formControlName="fechaHora"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.cantidad" for="field_cantidad">Cantidad</label>
+          <input type="number" class="form-control" name="cantidad" id="field_cantidad" data-cy="cantidad" formControlName="cantidad" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.totalNeto" for="field_totalNeto">Total Neto</label>
+          <input type="number" class="form-control" name="totalNeto" id="field_totalNeto" data-cy="totalNeto" formControlName="totalNeto" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.totalPagar" for="field_totalPagar">Total Pagar</label>
+          <input
+            type="number"
+            class="form-control"
+            name="totalPagar"
+            id="field_totalPagar"
+            data-cy="totalPagar"
+            formControlName="totalPagar"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.tipoDePago" for="field_tipoDePago">Tipo De Pago</label>
+          <select class="form-control" name="tipoDePago" formControlName="tipoDePago" id="field_tipoDePago" data-cy="tipoDePago">
+            <option [ngValue]="null">{{ 'goodSmellApp.FormaPago.null' | translate }}</option>
+            <option *ngFor="let formaPago of formaPagoValues" [value]="formaPago">
+              {{ 'goodSmellApp.FormaPago.' + formaPago | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.factura" for="field_factura">Factura</label>
+          <select class="form-control" id="field_factura" data-cy="factura" name="factura" formControlName="factura">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="facturaOption.id === editForm.get('factura')!.value?.id ? editForm.get('factura')!.value : facturaOption"
+              *ngFor="let facturaOption of facturasCollection; trackBy: trackFacturaById"
+            >
+              {{ facturaOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.empleado" for="field_empleado">Empleado</label>
+          <select class="form-control" id="field_empleado" data-cy="empleado" name="empleado" formControlName="empleado">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="empleadoOption.id === editForm.get('empleado')!.value?.id ? editForm.get('empleado')!.value : empleadoOption"
+              *ngFor="let empleadoOption of empleadosSharedCollection; trackBy: trackEmpleadoById"
+            >
+              {{ empleadoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.vinoTinto" for="field_vinoTinto">Vino Tinto</label>
+          <select class="form-control" id="field_vinoTinto" data-cy="vinoTinto" name="vinoTinto" formControlName="vinoTinto">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="vinoTintoOption.id === editForm.get('vinoTinto')!.value?.id ? editForm.get('vinoTinto')!.value : vinoTintoOption"
+              *ngFor="let vinoTintoOption of vinoTintosSharedCollection; trackBy: trackVinoTintoById"
+            >
+              {{ vinoTintoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.vinoRosado" for="field_vinoRosado">Vino Rosado</label>
+          <select class="form-control" id="field_vinoRosado" data-cy="vinoRosado" name="vinoRosado" formControlName="vinoRosado">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                vinoRosadoOption.id === editForm.get('vinoRosado')!.value?.id ? editForm.get('vinoRosado')!.value : vinoRosadoOption
+              "
+              *ngFor="let vinoRosadoOption of vinoRosadosSharedCollection; trackBy: trackVinoRosadoById"
+            >
+              {{ vinoRosadoOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.venta.vinoBlanco" for="field_vinoBlanco">Vino Blanco</label>
+          <select class="form-control" id="field_vinoBlanco" data-cy="vinoBlanco" name="vinoBlanco" formControlName="vinoBlanco">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                vinoBlancoOption.id === editForm.get('vinoBlanco')!.value?.id ? editForm.get('vinoBlanco')!.value : vinoBlancoOption
+              "
+              *ngFor="let vinoBlancoOption of vinoBlancosSharedCollection; trackBy: trackVinoBlancoById"
+            >
+              {{ vinoBlancoOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

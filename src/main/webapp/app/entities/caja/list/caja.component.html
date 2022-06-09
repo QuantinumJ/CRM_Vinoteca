@@ -1,0 +1,78 @@
+<div>
+  <h2 id="page-heading" data-cy="CajaHeading">
+    <span jhiTranslate="goodSmellApp.caja.home.title">Cajas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="goodSmellApp.caja.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-caja"
+        [routerLink]="['/caja/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="goodSmellApp.caja.home.createLabel"> Create a new Caja </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="cajas?.length === 0">
+    <span jhiTranslate="goodSmellApp.caja.home.notFound">No cajas found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="cajas && cajas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.caja.fechaDia">Fecha Dia</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.caja.totalDia">Total Dia</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.caja.valorInicial">Valor Inicial</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.caja.venta">Venta</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let caja of cajas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/caja', caja.id, 'view']">{{ caja.id }}</a>
+          </td>
+          <td>{{ caja.fechaDia | formatMediumDate }}</td>
+          <td>{{ caja.totalDia }}</td>
+          <td>{{ caja.valorInicial }}</td>
+          <td>
+            <div *ngIf="caja.venta">
+              <a [routerLink]="['/venta', caja.venta?.id, 'view']">{{ caja.venta?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/caja', caja.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/caja', caja.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(caja)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+{
+  "applications": "*",
+  "changelogDate": "20220608135207",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "vino_blanco",
+  "fields": [
+    {
+      "fieldName": "bodega",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "denominacionOrigen",
+      "fieldType": "DomOrg",
+      "fieldValues": "ANDALUCIA,ARAGON,ASTURIAS,CANARIAS,CASTILLA_LA_MANCHA,CASTILLA_Y_LEON,CATALUNA,EXTREMADURA,ISLAS_BALEARES,LA_RIOJA,MADRID,MURCIA,NAVARRA,PAIS_VASCO,C_VALENCIANA,SIN_DOMINACION"
+    },
+    {
+      "fieldName": "anoCosecha",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "nombre",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "maduracion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cata",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "purezaVino",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "precioBruto",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "tipoUvaBlanca",
+      "fieldType": "UvaBlanca",
+      "fieldValues": "VERDEJO,ALBARINO,SAUVIGNON_BLANC,CHARDONNAY,GEWURZTRAMINER,RIESLING,MACABEO_VIURA,PALOMINO_FINO,JEREZ,LISTAN,PEDRO_XIMENEZ,GODELLO,MOSCATEL,GARNACHA_BLANCA,MALVASIA,PINOIT_BLANC,VIURA,NINGUNA"
+    },
+    {
+      "fieldName": "stock",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "VinoBlanco",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

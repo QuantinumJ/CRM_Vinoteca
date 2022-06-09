@@ -1,0 +1,165 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-vino-rosado-heading"
+        data-cy="VinoRosadoCreateUpdateHeading"
+        jhiTranslate="goodSmellApp.vinoRosado.home.createOrEditLabel"
+      >
+        Create or edit a Vino Rosado
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.bodega" for="field_bodega">Bodega</label>
+          <input type="text" class="form-control" name="bodega" id="field_bodega" data-cy="bodega" formControlName="bodega" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.denominacionOrigen" for="field_denominacionOrigen"
+            >Denominacion Origen</label
+          >
+          <select
+            class="form-control"
+            name="denominacionOrigen"
+            formControlName="denominacionOrigen"
+            id="field_denominacionOrigen"
+            data-cy="denominacionOrigen"
+          >
+            <option [ngValue]="null">{{ 'goodSmellApp.DomOrg.null' | translate }}</option>
+            <option *ngFor="let domOrg of domOrgValues" [value]="domOrg">{{ 'goodSmellApp.DomOrg.' + domOrg | translate }}</option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.anoCosecha" for="field_anoCosecha">Ano Cosecha</label>
+          <div class="input-group">
+            <input
+              id="field_anoCosecha"
+              data-cy="anoCosecha"
+              type="text"
+              class="form-control"
+              name="anoCosecha"
+              ngbDatepicker
+              #anoCosechaDp="ngbDatepicker"
+              formControlName="anoCosecha"
+            />
+            <button type="button" class="btn btn-secondary" (click)="anoCosechaDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.nombre" for="field_nombre">Nombre</label>
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.maduracion" for="field_maduracion">Maduracion</label>
+          <input
+            type="text"
+            class="form-control"
+            name="maduracion"
+            id="field_maduracion"
+            data-cy="maduracion"
+            formControlName="maduracion"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.descripcion" for="field_descripcion">Descripcion</label>
+          <input
+            type="text"
+            class="form-control"
+            name="descripcion"
+            id="field_descripcion"
+            data-cy="descripcion"
+            formControlName="descripcion"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.cata" for="field_cata">Cata</label>
+          <input type="text" class="form-control" name="cata" id="field_cata" data-cy="cata" formControlName="cata" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.purezaVino" for="field_purezaVino">Pureza Vino</label>
+          <input
+            type="number"
+            class="form-control"
+            name="purezaVino"
+            id="field_purezaVino"
+            data-cy="purezaVino"
+            formControlName="purezaVino"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.precioBruto" for="field_precioBruto">Precio Bruto</label>
+          <input
+            type="number"
+            class="form-control"
+            name="precioBruto"
+            id="field_precioBruto"
+            data-cy="precioBruto"
+            formControlName="precioBruto"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.tipoUvaTinta" for="field_tipoUvaTinta">Tipo Uva Tinta</label>
+          <select class="form-control" name="tipoUvaTinta" formControlName="tipoUvaTinta" id="field_tipoUvaTinta" data-cy="tipoUvaTinta">
+            <option [ngValue]="null">{{ 'goodSmellApp.UvaTinta.null' | translate }}</option>
+            <option *ngFor="let uvaTinta of uvaTintaValues" [value]="uvaTinta">
+              {{ 'goodSmellApp.UvaTinta.' + uvaTinta | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.tipoUvaBlanca" for="field_tipoUvaBlanca">Tipo Uva Blanca</label>
+          <select
+            class="form-control"
+            name="tipoUvaBlanca"
+            formControlName="tipoUvaBlanca"
+            id="field_tipoUvaBlanca"
+            data-cy="tipoUvaBlanca"
+          >
+            <option [ngValue]="null">{{ 'goodSmellApp.UvaBlanca.null' | translate }}</option>
+            <option *ngFor="let uvaBlanca of uvaBlancaValues" [value]="uvaBlanca">
+              {{ 'goodSmellApp.UvaBlanca.' + uvaBlanca | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="goodSmellApp.vinoRosado.stock" for="field_stock">Stock</label>
+          <input type="number" class="form-control" name="stock" id="field_stock" data-cy="stock" formControlName="stock" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

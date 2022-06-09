@@ -1,0 +1,35 @@
+{
+  "goodSmellApp": {
+    "vinoRosado": {
+      "home": {
+        "title": "Vino Rosados",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vino Rosado",
+        "createOrEditLabel": "Create or edit a Vino Rosado",
+        "notFound": "No Vino Rosados found"
+      },
+      "created": "A new Vino Rosado is created with identifier {{ param }}",
+      "updated": "A Vino Rosado is updated with identifier {{ param }}",
+      "deleted": "A Vino Rosado is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vino Rosado {{ id }}?"
+      },
+      "detail": {
+        "title": "Vino Rosado"
+      },
+      "id": "ID",
+      "bodega": "Bodega",
+      "denominacionOrigen": "Denominacion Origen",
+      "anoCosecha": "Ano Cosecha",
+      "nombre": "Nombre",
+      "maduracion": "Maduracion",
+      "descripcion": "Descripcion",
+      "cata": "Cata",
+      "purezaVino": "Pureza Vino",
+      "precioBruto": "Precio Bruto",
+      "tipoUvaTinta": "Tipo Uva Tinta",
+      "tipoUvaBlanca": "Tipo Uva Blanca",
+      "stock": "Stock"
+    }
+  }
+}

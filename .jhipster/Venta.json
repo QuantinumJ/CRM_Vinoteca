@@ -1,0 +1,69 @@
+{
+  "applications": "*",
+  "changelogDate": "20220608135203",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "venta",
+  "fields": [
+    {
+      "fieldName": "fechaHora",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "cantidad",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalNeto",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalPagar",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "tipoDePago",
+      "fieldType": "FormaPago",
+      "fieldValues": "TARJETA,METALICO"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Venta",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "factura",
+      "otherEntityRelationshipName": "venta",
+      "ownerSide": true,
+      "relationshipName": "factura",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "empleado",
+      "otherEntityRelationshipName": "venta",
+      "relationshipName": "empleado",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "vinoTinto",
+      "otherEntityRelationshipName": "venta",
+      "relationshipName": "vinoTinto",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "vinoRosado",
+      "otherEntityRelationshipName": "venta",
+      "relationshipName": "vinoRosado",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "vinoBlanco",
+      "otherEntityRelationshipName": "venta",
+      "relationshipName": "vinoBlanco",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

@@ -1,0 +1,38 @@
+{
+  "applications": "*",
+  "changelogDate": "20220608135202",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "factura",
+  "fields": [
+    {
+      "fieldName": "numero",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fecha",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Factura",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "cliente",
+      "otherEntityRelationshipName": "factura",
+      "ownerSide": true,
+      "relationshipName": "cliente",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "empresa",
+      "otherEntityRelationshipName": "factura",
+      "relationshipName": "empresa",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

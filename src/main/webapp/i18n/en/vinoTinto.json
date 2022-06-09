@@ -1,0 +1,34 @@
+{
+  "goodSmellApp": {
+    "vinoTinto": {
+      "home": {
+        "title": "Vino Tintos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Vino Tinto",
+        "createOrEditLabel": "Create or edit a Vino Tinto",
+        "notFound": "No Vino Tintos found"
+      },
+      "created": "A new Vino Tinto is created with identifier {{ param }}",
+      "updated": "A Vino Tinto is updated with identifier {{ param }}",
+      "deleted": "A Vino Tinto is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Vino Tinto {{ id }}?"
+      },
+      "detail": {
+        "title": "Vino Tinto"
+      },
+      "id": "ID",
+      "bodega": "Bodega",
+      "denominacionOrigen": "Denominacion Origen",
+      "anoCosecha": "Ano Cosecha",
+      "nombre": "Nombre",
+      "maduracion": "Maduracion",
+      "descripcion": "Descripcion",
+      "cata": "Cata",
+      "purezaVino": "Pureza Vino",
+      "precioBruto": "Precio Bruto",
+      "tipoUvaTinta": "Tipo Uva Tinta",
+      "stock": "Stock"
+    }
+  }
+}

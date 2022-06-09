@@ -7,6 +7,15 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "empresa": "Empresa",
+        "empleado": "Empleado",
+        "cliente": "Cliente",
+        "factura": "Factura",
+        "venta": "Venta",
+        "caja": "Caja",
+        "vinoRosado": "Vino Rosado",
+        "vinoTinto": "Vino Tinto",
+        "vinoBlanco": "Vino Blanco",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

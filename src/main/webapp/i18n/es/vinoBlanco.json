@@ -1,0 +1,34 @@
+{
+  "goodSmellApp": {
+    "vinoBlanco": {
+      "home": {
+        "title": "Vino Blancos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Vino Blanco",
+        "createOrEditLabel": "Crear o editar Vino Blanco",
+        "notFound": "Ningún Vino Blancos encontrado"
+      },
+      "created": "Un nuevo Vino Blanco ha sido creado con el identificador {{ param }}",
+      "updated": "Un Vino Blanco ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Vino Blanco ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Vino Blanco {{ id }}?"
+      },
+      "detail": {
+        "title": "Vino Blanco"
+      },
+      "id": "ID",
+      "bodega": "Bodega",
+      "denominacionOrigen": "Denominacion Origen",
+      "anoCosecha": "Ano Cosecha",
+      "nombre": "Nombre",
+      "maduracion": "Maduracion",
+      "descripcion": "Descripcion",
+      "cata": "Cata",
+      "purezaVino": "Pureza Vino",
+      "precioBruto": "Precio Bruto",
+      "tipoUvaBlanca": "Tipo Uva Blanca",
+      "stock": "Stock"
+    }
+  }
+}

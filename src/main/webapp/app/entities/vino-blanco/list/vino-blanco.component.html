@@ -1,0 +1,98 @@
+<div>
+  <h2 id="page-heading" data-cy="VinoBlancoHeading">
+    <span jhiTranslate="goodSmellApp.vinoBlanco.home.title">Vino Blancos</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="goodSmellApp.vinoBlanco.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-vino-blanco"
+        [routerLink]="['/vino-blanco/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="goodSmellApp.vinoBlanco.home.createLabel"> Create a new Vino Blanco </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="vinoBlancos?.length === 0">
+    <span jhiTranslate="goodSmellApp.vinoBlanco.home.notFound">No vinoBlancos found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="vinoBlancos && vinoBlancos.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.bodega">Bodega</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.denominacionOrigen">Denominacion Origen</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.anoCosecha">Ano Cosecha</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.nombre">Nombre</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.maduracion">Maduracion</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.descripcion">Descripcion</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.cata">Cata</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.purezaVino">Pureza Vino</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.precioBruto">Precio Bruto</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.tipoUvaBlanca">Tipo Uva Blanca</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.vinoBlanco.stock">Stock</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let vinoBlanco of vinoBlancos; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/vino-blanco', vinoBlanco.id, 'view']">{{ vinoBlanco.id }}</a>
+          </td>
+          <td>{{ vinoBlanco.bodega }}</td>
+          <td jhiTranslate="{{ 'goodSmellApp.DomOrg.' + vinoBlanco.denominacionOrigen }}">{{ vinoBlanco.denominacionOrigen }}</td>
+          <td>{{ vinoBlanco.anoCosecha | formatMediumDate }}</td>
+          <td>{{ vinoBlanco.nombre }}</td>
+          <td>{{ vinoBlanco.maduracion }}</td>
+          <td>{{ vinoBlanco.descripcion }}</td>
+          <td>{{ vinoBlanco.cata }}</td>
+          <td>{{ vinoBlanco.purezaVino }}</td>
+          <td>{{ vinoBlanco.precioBruto }}</td>
+          <td jhiTranslate="{{ 'goodSmellApp.UvaBlanca.' + vinoBlanco.tipoUvaBlanca }}">{{ vinoBlanco.tipoUvaBlanca }}</td>
+          <td>{{ vinoBlanco.stock }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/vino-blanco', vinoBlanco.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/vino-blanco', vinoBlanco.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(vinoBlanco)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

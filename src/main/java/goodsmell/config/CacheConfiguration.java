@@ -48,6 +48,15 @@ public class CacheConfiguration {
             createCache(cm, goodsmell.domain.User.class.getName());
             createCache(cm, goodsmell.domain.Authority.class.getName());
             createCache(cm, goodsmell.domain.User.class.getName() + ".authorities");
+            createCache(cm, goodsmell.domain.Empresa.class.getName());
+            createCache(cm, goodsmell.domain.Empleado.class.getName());
+            createCache(cm, goodsmell.domain.Cliente.class.getName());
+            createCache(cm, goodsmell.domain.Factura.class.getName());
+            createCache(cm, goodsmell.domain.Venta.class.getName());
+            createCache(cm, goodsmell.domain.Caja.class.getName());
+            createCache(cm, goodsmell.domain.VinoRosado.class.getName());
+            createCache(cm, goodsmell.domain.VinoTinto.class.getName());
+            createCache(cm, goodsmell.domain.VinoBlanco.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

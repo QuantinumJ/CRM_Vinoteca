@@ -1,0 +1,106 @@
+<div>
+  <h2 id="page-heading" data-cy="VentaHeading">
+    <span jhiTranslate="goodSmellApp.venta.home.title">Ventas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="goodSmellApp.venta.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-venta"
+        [routerLink]="['/venta/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="goodSmellApp.venta.home.createLabel"> Create a new Venta </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="ventas?.length === 0">
+    <span jhiTranslate="goodSmellApp.venta.home.notFound">No ventas found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="ventas && ventas.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.fechaHora">Fecha Hora</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.cantidad">Cantidad</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.totalNeto">Total Neto</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.totalPagar">Total Pagar</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.tipoDePago">Tipo De Pago</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.factura">Factura</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.empleado">Empleado</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.vinoTinto">Vino Tinto</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.vinoRosado">Vino Rosado</span></th>
+          <th scope="col"><span jhiTranslate="goodSmellApp.venta.vinoBlanco">Vino Blanco</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let venta of ventas; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/venta', venta.id, 'view']">{{ venta.id }}</a>
+          </td>
+          <td>{{ venta.fechaHora | formatMediumDatetime }}</td>
+          <td>{{ venta.cantidad }}</td>
+          <td>{{ venta.totalNeto }}</td>
+          <td>{{ venta.totalPagar }}</td>
+          <td jhiTranslate="{{ 'goodSmellApp.FormaPago.' + venta.tipoDePago }}">{{ venta.tipoDePago }}</td>
+          <td>
+            <div *ngIf="venta.factura">
+              <a [routerLink]="['/factura', venta.factura?.id, 'view']">{{ venta.factura?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="venta.empleado">
+              <a [routerLink]="['/empleado', venta.empleado?.id, 'view']">{{ venta.empleado?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="venta.vinoTinto">
+              <a [routerLink]="['/vino-tinto', venta.vinoTinto?.id, 'view']">{{ venta.vinoTinto?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="venta.vinoRosado">
+              <a [routerLink]="['/vino-rosado', venta.vinoRosado?.id, 'view']">{{ venta.vinoRosado?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="venta.vinoBlanco">
+              <a [routerLink]="['/vino-blanco', venta.vinoBlanco?.id, 'view']">{{ venta.vinoBlanco?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button type="submit" [routerLink]="['/venta', venta.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button type="submit" [routerLink]="['/venta', venta.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(venta)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

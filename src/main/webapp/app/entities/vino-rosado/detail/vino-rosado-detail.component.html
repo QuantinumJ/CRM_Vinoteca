@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="vinoRosado">
+      <h2 data-cy="vinoRosadoDetailsHeading"><span jhiTranslate="goodSmellApp.vinoRosado.detail.title">Vino Rosado</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ vinoRosado.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.bodega">Bodega</span></dt>
+        <dd>
+          <span>{{ vinoRosado.bodega }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.denominacionOrigen">Denominacion Origen</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'goodSmellApp.DomOrg.' + vinoRosado.denominacionOrigen }}">{{ vinoRosado.denominacionOrigen }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.anoCosecha">Ano Cosecha</span></dt>
+        <dd>
+          <span>{{ vinoRosado.anoCosecha | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.nombre">Nombre</span></dt>
+        <dd>
+          <span>{{ vinoRosado.nombre }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.maduracion">Maduracion</span></dt>
+        <dd>
+          <span>{{ vinoRosado.maduracion }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.descripcion">Descripcion</span></dt>
+        <dd>
+          <span>{{ vinoRosado.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.cata">Cata</span></dt>
+        <dd>
+          <span>{{ vinoRosado.cata }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.purezaVino">Pureza Vino</span></dt>
+        <dd>
+          <span>{{ vinoRosado.purezaVino }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.precioBruto">Precio Bruto</span></dt>
+        <dd>
+          <span>{{ vinoRosado.precioBruto }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.tipoUvaTinta">Tipo Uva Tinta</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'goodSmellApp.UvaTinta.' + vinoRosado.tipoUvaTinta }}">{{ vinoRosado.tipoUvaTinta }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.tipoUvaBlanca">Tipo Uva Blanca</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'goodSmellApp.UvaBlanca.' + vinoRosado.tipoUvaBlanca }}">{{ vinoRosado.tipoUvaBlanca }}</span>
+        </dd>
+        <dt><span jhiTranslate="goodSmellApp.vinoRosado.stock">Stock</span></dt>
+        <dd>
+          <span>{{ vinoRosado.stock }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/vino-rosado', vinoRosado.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

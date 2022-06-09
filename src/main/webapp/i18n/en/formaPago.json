@@ -1,0 +1,9 @@
+{
+  "goodSmellApp": {
+    "FormaPago": {
+      "null": "",
+      "TARJETA": "TARJETA",
+      "METALICO": "METALICO"
+    }
+  }
+}

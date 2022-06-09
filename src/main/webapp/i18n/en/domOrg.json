@@ -1,0 +1,23 @@
+{
+  "goodSmellApp": {
+    "DomOrg": {
+      "null": "",
+      "ANDALUCIA": "ANDALUCIA",
+      "ARAGON": "ARAGON",
+      "ASTURIAS": "ASTURIAS",
+      "CANARIAS": "CANARIAS",
+      "CASTILLA_LA_MANCHA": "CASTILLA_LA_MANCHA",
+      "CASTILLA_Y_LEON": "CASTILLA_Y_LEON",
+      "CATALUNA": "CATALUNA",
+      "EXTREMADURA": "EXTREMADURA",
+      "ISLAS_BALEARES": "ISLAS_BALEARES",
+      "LA_RIOJA": "LA_RIOJA",
+      "MADRID": "MADRID",
+      "MURCIA": "MURCIA",
+      "NAVARRA": "NAVARRA",
+      "PAIS_VASCO": "PAIS_VASCO",
+      "C_VALENCIANA": "C_VALENCIANA",
+      "SIN_DOMINACION": "SIN_DOMINACION"
+    }
+  }
+}

@@ -1,0 +1,208 @@
+
+entity Empresa {
+	nombreSocial String required,
+    cif String required,
+    telefono String required,
+    email String required,
+    direccion String required
+}
+
+entity Empleado{
+nombre String required,
+apellido String required,
+dni String required,
+fechaAlta LocalDate required,
+telefono String required,
+email String,
+direccion String required,
+activo Boolean
+}
+entity Cliente{
+nombre String required,
+apellido String required,
+dni String required,
+fechaAlta LocalDate,
+telefono String,
+email String,
+direccion String required,
+fidelizado Boolean
+}
+// La creacion de albaran nos sirve para meter en stock la mercancia recibida de los proveedores
+
+entity Factura{
+numero String,
+fecha Instant
+}
+entity Venta{
+fechaHora Instant,
+cantidad Integer,
+totalNeto Double,
+totalPagar Double,
+tipoDePago FormaPago
+}
+entity Caja{
+fechaDia LocalDate,
+totalDia Double,
+valorInicial Double
+}
+
+// EN LA RELACION CON EL TICKET HAY QUE TRAER NOMBRE EMPRESA, DIRECCION, TELEFONO, PRODUCTOS
+
+enum FormaPago{
+TARJETA,
+METALICO
+}
+
+entity VinoRosado{
+bodega String,
+denominacionOrigen DomOrg,
+anoCosecha LocalDate,
+nombre String,
+maduracion String,
+descripcion String,
+cata String,
+purezaVino Double,
+precioBruto Double
+tipoUvaTinta UvaTinta,
+tipoUvaBlanca UvaBlanca,
+stock Integer
+
+}
+entity VinoTinto{
+bodega String,
+denominacionOrigen DomOrg,
+anoCosecha LocalDate,
+nombre String,
+maduracion String,
+descripcion String,
+cata String,
+purezaVino Double,
+precioBruto Double
+tipoUvaTinta UvaTinta,
+stock Integer
+}
+
+entity VinoBlanco{
+bodega String,
+denominacionOrigen DomOrg,
+anoCosecha LocalDate,
+nombre String,
+maduracion String,
+descripcion String,
+cata String,
+purezaVino Double,
+precioBruto Double
+tipoUvaBlanca UvaBlanca,
+stock Integer
+}
+
+enum UvaTinta{
+BOBAL,
+BRANCELLAO,
+CABERNET_FRANC,
+CABERNET_SAUVIGNON,
+CALLET,
+MATURANA,
+GARNACHA,
+MENCIA,
+MERLOT,
+MONASTRELL,
+PRIETO_PICUDO,
+SYRAH,
+TEMPRANILLO,
+VERDEJO_NEGRO
+}
+
+enum UvaBlanca{
+VERDEJO, 
+ALBARINO, 
+SAUVIGNON_BLANC,
+CHARDONNAY,
+GEWURZTRAMINER,
+RIESLING,
+MACABEO_VIURA,
+PALOMINO_FINO,
+JEREZ,
+LISTAN,
+PEDRO_XIMENEZ,
+GODELLO,
+MOSCATEL,
+GARNACHA_BLANCA,
+MALVASIA,
+PINOIT_BLANC,
+VIURA,
+NINGUNA
+}
+
+enum DomOrg{
+ANDALUCIA,
+ARAGON,
+ASTURIAS,
+CANARIAS,
+CASTILLA_LA_MANCHA,
+CASTILLA_Y_LEON,
+CATALUNA,
+EXTREMADURA,
+ISLAS_BALEARES,
+LA_RIOJA,
+MADRID,
+MURCIA,
+NAVARRA,
+PAIS_VASCO,
+C_VALENCIANA,
+SIN_DOMINACION
+}
+
+relationship ManyToOne{
+Cliente{empresa} to Empresa,
+Empleado{empresa} to Empresa,
+Factura{empresa} to Empresa,
+Venta{empleado} to Empleado,
+Venta{vinoTinto} to VinoTinto,
+Venta{vinoRosado} to VinoRosado,
+Venta{vinoBlanco} to VinoBlanco,
+Caja{venta} to Venta
+}
+relationship OneToOne{
+Venta{factura} to Factura
+Factura{cliente} to Cliente
+}
+
+// an ignored comment
+/** not an ignored comment */
+
+
+
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+
+
+/**
+ * The Employee entity.
+ */
+
+
+// defining multiple OneToMany relationships with comments
+
+
+
+
+// defining multiple oneToOne relationships
+
+
+
+
+// Set pagination options
+
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

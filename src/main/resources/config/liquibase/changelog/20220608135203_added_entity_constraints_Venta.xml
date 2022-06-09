@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Venta.
+    -->
+    <changeSet id="20220608135203-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="factura_id"
+                                 baseTableName="venta"
+                                 constraintName="fk_venta__factura_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="factura"/>
+
+        <addForeignKeyConstraint baseColumnNames="empleado_id"
+                                 baseTableName="venta"
+                                 constraintName="fk_venta__empleado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="empleado"/>
+
+        <addForeignKeyConstraint baseColumnNames="vino_tinto_id"
+                                 baseTableName="venta"
+                                 constraintName="fk_venta__vino_tinto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vino_tinto"/>
+
+        <addForeignKeyConstraint baseColumnNames="vino_rosado_id"
+                                 baseTableName="venta"
+                                 constraintName="fk_venta__vino_rosado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vino_rosado"/>
+
+        <addForeignKeyConstraint baseColumnNames="vino_blanco_id"
+                                 baseTableName="venta"
+                                 constraintName="fk_venta__vino_blanco_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="vino_blanco"/>
+    </changeSet>
+</databaseChangeLog>
